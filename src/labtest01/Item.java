@@ -1,5 +1,7 @@
 package labtest01;
 
+import java.util.Comparator;
+
 /**
  * An item in a grocery store: 
  * Jar of peanut butter, package of pasta,
@@ -47,4 +49,22 @@ public class Item
 	{
 		return aPrice;
 	}
+
+	/**
+	 * Factory method for a by Price comparator.
+	 * @return a Comparator<Item> in which the ordering is based on price
+	 */
+	public static Comparator<Item> getItemByPriceComparator()
+	{
+		return new Comparator<Item>()
+		{
+
+			@Override
+			public int compare(Item pItem1, Item pItem2) 
+			{
+				return pItem1.getPrice() - pItem2.getPrice();
+			}};
+		
+	}
+	
 }

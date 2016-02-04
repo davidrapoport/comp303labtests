@@ -46,15 +46,30 @@ public class Inventory
 	}
 	
 	/**
+	 * Returns the total quantity of items in the inventory.
+	 * @return The sum of the quantities of all items.
+	 */
+	public int totalValue()
+	{
+		int lTotal = 0;
+		for(Integer lQuantity : aInventory.values())
+		{
+			lTotal += lQuantity;
+		}
+		return lTotal;
+	}
+	
+	/**
 	 * Removes pQuantity of items from the inventory,
 	 * for example by selling them or tossing them in
 	 * the garbage.
 	 * @param pItem The type of item to dispose of
 	 * @param pQuantity The amount to dispose.
-	 * @pre aInventory.containsKey(pItem) && pQuantity >= aInventory.get(pItem)
+	 * @pre aInventory.containsKey(pItem) && pQuantity <= aInventory.get(pItem)
 	 */
 	public void dispose(Item pItem, int pQuantity)
 	{
+		assert aInventory.containsKey(pItem) && pQuantity <= aInventory.get(pItem);
 		int amount = aInventory.get(pItem);
 		amount -= pQuantity;
 		aInventory.put(pItem, amount);
