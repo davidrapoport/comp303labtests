@@ -7,7 +7,7 @@ import java.util.Comparator;
  * Jar of peanut butter, package of pasta,
  * whatever.
  */
-public class Item
+public class Item implements ItemInterface
 {
 	private final String aName;
 	private final int aId;
@@ -51,8 +51,8 @@ public class Item
 	}
 
 	/**
-	 * Factory method for a by Price comparator.
-	 * @return a Comparator<Item> in which the ordering is based on price
+	 * Factory method to return comparator.
+	 * @return a comparator which ranks items by price.
 	 */
 	public static Comparator<Item> getItemByPriceComparator()
 	{

@@ -17,7 +17,6 @@ public final class Driver
 	private static final Item[] ITEMS = { ITEM_CEREAL, ITEM_JAM, ITEM_BUTTER };
 	
 	private Driver() {}
-	
 	/**
 	 * @param pArgs Not used
 	 */
