@@ -1,15 +1,16 @@
 package labtest01;
 
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Represents the inventory of a 
  * physical grocery store.
  */
-public class Inventory
+public class Inventory extends Observable
 {
 	private final String aName; // Unique
 	private final HashMap<Item, Integer> aInventory = new HashMap<>();
+	
 	
 	/**
 	 * Creates a new inventory with no items in it,
@@ -43,6 +44,8 @@ public class Inventory
 		}
 		amount += pQuantity;
 		aInventory.put(pItem, amount);
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**
@@ -73,6 +76,8 @@ public class Inventory
 		int amount = aInventory.get(pItem);
 		amount -= pQuantity;
 		aInventory.put(pItem, amount);
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**

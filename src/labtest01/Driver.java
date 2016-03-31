@@ -23,7 +23,8 @@ public final class Driver
 	public static void main(String[] pArgs)
 	{
 		Inventory lInventory = new Inventory("Test");
-		
+		lInventory.addObserver(new StockObserver());
+		lInventory.addObserver(new DisposeObserver());
 		List<Item> lItems = new ArrayList<Item>();
 		for (int i = 0; i < ITEMS.length; i++)
 		{
@@ -38,6 +39,6 @@ public final class Driver
 		System.out.println("Total number of goods in inventory " + lInventory.totalValue());
 		Item notIn = new Item("Milk", 4, 300);
 //		lInventory.dispose(notIn, 1);
-		lInventory.dispose(ITEM_CEREAL, 5);
+		lInventory.dispose(ITEM_CEREAL, 3);
 	}
 }
